@@ -1,13 +1,20 @@
+using InterraWebBackend.Data;
+using InterraWebBackend.Repository;
+using Microsoft.EntityFrameworkCore;
 using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+//builder.Services.AddDbContext<InterraDBContext>();
+//builder.Services.AddDbContext<InterraDBContext>(options=>options.UseSqlServer("Server=.;Database=InterraWebDB;Integrated Security=True"));
+//getting connection string from appsettings.json
+builder.Services.AddDbContext<InterraDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("InterraWebDB")));
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<IQuickLinkRepository, QuickLinkRepository>();
 
 var app = builder.Build();
 

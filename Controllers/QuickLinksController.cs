@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using InterraWebBackend.Repository;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InterraWebBackend.Controllers
@@ -7,10 +8,18 @@ namespace InterraWebBackend.Controllers
     [ApiController]
     public class QuickLinksController : ControllerBase
     {
-        [HttpGet]
-        public string Get()
+        private readonly IQuickLinkRepository _quickLinkRepository;
+        public QuickLinksController(IQuickLinkRepository quickLinkRepository)
         {
-            return "QuickLinks!";
+            _quickLinkRepository = quickLinkRepository;
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var quickLinks = await _quickLinkRepository.GetAllQuickLinksAsync();
+            return Ok(quickLinks);
         }
     }
 }
