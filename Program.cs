@@ -15,6 +15,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IQuickLinkRepository, QuickLinkRepository>();
+builder.Services.AddScoped<IDigitalFootprintsRepository, DigitalFootprintsRepository>();
 
 var app = builder.Build();
 

@@ -10,6 +10,9 @@ namespace InterraWebBackend.Data
 
         public DbSet<QuickLinks> QuickLinks { get; set; }
 
+        public DbSet<Webinar> Webinars { get; set; }
+
+
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
         //    optionsBuilder.UseSqlServer("Server=.;Database=InterraWebDB;Integrated Security=True");
