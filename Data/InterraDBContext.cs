@@ -12,6 +12,8 @@ namespace InterraWebBackend.Data
 
         public DbSet<Webinar> Webinars { get; set; }
 
+        public DbSet<ClientFeedback> ClientFeedbacks { get; set; }
+
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
@@ -24,5 +26,17 @@ namespace InterraWebBackend.Data
         //    optionsBuilder.UseSqlServer("Server=.;Database=InterraWebDB;Integrated Security=True");
         //    base.OnConfiguring(optionsBuilder);
         //}
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Ignore the 'QuickLinks' table during migrations
+           // modelBuilder.Ignore<QuickLinks>();
+            //modelBuilder.Ignore<Webinar>();
+
+            // Other model configurations...
+        }
+
     }
 }

@@ -16,7 +16,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IQuickLinkRepository, QuickLinkRepository>();
 builder.Services.AddScoped<IDigitalFootprintsRepository, DigitalFootprintsRepository>();
-
+builder.Services.AddScoped<IClientFeedbackRepository, ClientFeedbackRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
