@@ -14,6 +14,11 @@ namespace InterraWebBackend.Data
 
         public DbSet<ClientFeedback> ClientFeedbacks { get; set; }
 
+        public DbSet<StrategicPartner> StrategicPartners { get; set; }
+
+
+        public DbSet<Query> Queries { get; set; }
+
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{

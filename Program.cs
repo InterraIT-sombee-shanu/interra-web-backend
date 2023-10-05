@@ -17,6 +17,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IQuickLinkRepository, QuickLinkRepository>();
 builder.Services.AddScoped<IDigitalFootprintsRepository, DigitalFootprintsRepository>();
 builder.Services.AddScoped<IClientFeedbackRepository, ClientFeedbackRepository>();
+builder.Services.AddScoped<IHomePageDataRepository, HomePageDataRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
